@@ -55,7 +55,7 @@ MRuby::Gem::Specification.new('haconiwa') do |spec|
   spec.add_dependency 'mruby-print'     , :core => 'mruby-print'
 
 
-  spec.add_dependency 'mruby-cvisor', github: 'oss-fun/mruby-cvisor'
+  spec.add_dependency 'mruby-subaco', github: 'oss-fun/mruby-subaco'
   if spec.build.cc.defines.flatten.include?("HACONIWA_USE_CRIU")
     spec.add_dependency 'mruby-criu', :github => 'matsumotory/mruby-criu'
   end
