@@ -1,6 +1,6 @@
 Name: haconiwa
 Epoch: 1
-Version: 0.11.2
+Version: 0.11.5
 Release: 1
 Summary: MRuby on Container
 License: GPLv3+
@@ -49,6 +49,15 @@ fi
 %{_bindir}/*
 
 %changelog
+* Fri Oct 30 2020 Uchio Kondo <udzura@udzura.jp> - 1:0.11.5-1
+- Important: Fix blocking SIGCHLD after container is created
+
+* Thu Oct 29 2020 Uchio Kondo <udzura@udzura.jp> - 1:0.11.4-1
+- Block SIGCHLD in early container setup phase to avoid defunct
+
+* Tue Jan 28 2020 Uchio Kondo <udzura@udzura.jp> - 1:0.11.3-1
+- Add loop limit and current_timer
+
 * Fri Dec 13 2019 Uchio Kondo <udzura@udzura.jp> - 1:0.11.2-1
 - Reduce CPU usage on busyloop
 
@@ -57,12 +66,3 @@ fi
 
 * Fri Oct 25 2019 Uchio Kondo <udzura@udzura.jp> - 1:0.11.0-1
 - rootfs default to ro in pivot_root mode. and add rootfs.readonly? opt
-
-* Thu Oct 24 2019 Uchio Kondo <udzura@udzura.jp> - 1:0.10.10-1
-- Fix and enhance readiness hook
-
-* Thu Oct 17 2019 Uchio Kondo <udzura@udzura.jp> - 1:0.10.9-1
-- Add readiness hooks
-
-* Mon Oct  7 2019 Uchio Kondo <udzura@udzura.jp> - 1:0.10.8-1
-- Refine probes, check NS before create network

@@ -81,7 +81,10 @@ module Haconiwa
         end
         done, kick_ok = IO.pipe
         Haconiwa.probe_phase_pass(PHASE_START_FORK, hpid)
+
+        base.waitloop.block_signals([:CHLD])
         pid = Process.fork do
+          Haconiwa.unblock_signal([FiberedWorker.obj2signo(:CHLD)]) # hotfix
           Haconiwa.probe_phase_pass(PHASE_CONTAINER_START, hpid)
           invoke_general_hook(:after_fork, base)
 
@@ -173,6 +176,7 @@ module Haconiwa
         run_base_setup_before_wait
         Logger.puts "Container fork success and going to wait: pid=#{pid}"
         Haconiwa.probe_phase_pass(PHASE_START_WAIT, hpid)
+        base.waitloop.use_legacy_watchdog = base.use_legacy_watchdog
         pid, status = base.waitloop.run_and_wait(pid)
         Haconiwa.probe_phase_pass(PHASE_END_WAIT, hpid)
         run_cleanups_after_exit(status)

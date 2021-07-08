@@ -1,3 +1,21 @@
+haconiwa (0.11.5-1) unstable; urgency=medium
+
+  * Important: Fix blocking SIGCHLD after container is created
+
+ -- Uchio Kondo <udzura@udzura.jp>  Fri, 30 Oct 2020 14:22:54 +0900
+
+haconiwa (0.11.4-1) unstable; urgency=medium
+
+  * Block SIGCHLD in early container setup phase to avoid defunct
+
+ -- Uchio Kondo <udzura@udzura.jp>  Thu, 29 Oct 2020 11:59:33 +0900
+
+haconiwa (0.11.3-1) unstable; urgency=medium
+
+  * Add loop limit and current_timer
+
+ -- Uchio Kondo <udzura@udzura.jp>  Tue, 28 Jan 2020 17:41:55 +0900
+
 haconiwa (0.11.2-1) unstable; urgency=medium
 
   * Reduce CPU usage on busyloop
@@ -15,21 +33,3 @@ haconiwa (0.11.0-1) unstable; urgency=medium
   * rootfs default to ro in pivot_root mode. and add rootfs.readonly? opt
 
  -- Uchio Kondo <udzura@udzura.jp>  Fri, 25 Oct 2019 17:12:02 +0900
-
-haconiwa (0.10.10-1) unstable; urgency=medium
-
-  * Fix and enhance readiness hook
-
- -- Uchio Kondo <udzura@udzura.jp>  Thu, 24 Oct 2019 14:27:27 +0900
-
-haconiwa (0.10.9-1) unstable; urgency=medium
-
-  * Add readiness hooks
-
- -- Uchio Kondo <udzura@udzura.jp>  Thu, 17 Oct 2019 16:09:42 +0900
-
-haconiwa (0.10.8-1) unstable; urgency=medium
-
-  * Refine probes, check NS before create network
-
- -- Uchio Kondo <udzura@udzura.jp>  Mon,  7 Oct 2019 20:23:55 +0900
